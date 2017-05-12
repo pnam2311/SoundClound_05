@@ -5,20 +5,20 @@ package com.framgia.soundcloud.ui.activity;
  */
 
 public class AlbumItem {
-    private int mImageResource;
     private String mTitle;
+    private String mUrl;
 
-    public AlbumItem(int imageResource, String title) {
-        mImageResource = imageResource;
+    public AlbumItem(String title, String url) {
         mTitle = title;
+        mUrl = url;
     }
 
-    public int getImageResource() {
-        return mImageResource;
+    public String getUrl() {
+        return mUrl;
     }
 
-    public void setImageResource(int imageResource) {
-        mImageResource = imageResource;
+    public void setUrl(String url) {
+        mUrl = url;
     }
 
     public String getTitle() {

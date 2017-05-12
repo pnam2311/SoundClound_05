@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.k.soundcloud.R;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
     private List<AlbumItem> mAlbums;
-
+    private Context mContext;
 
     public AlbumAdapter(ArrayList<AlbumItem> albumItems) {
         mAlbums = albumItems;
@@ -28,17 +29,16 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_album, parent, false);
+        if (mContext == null) mContext = parent.getContext();
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_album, parent, false);
         return new ViewHolder(v);
-
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        AlbumItem item = mAlbums.get(position);
+    public void onBindViewHolder(ViewHolder holder, int i) {
+        AlbumItem item = mAlbums.get(i);
         holder.bindData(item);
     }
-
 
     @Override
     public int getItemCount() {
@@ -58,7 +58,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         public void bindData(AlbumItem item) {
             if (item != null) {
                 mTextView.setText(item.getTitle());
-                mImageView.setImageResource(item.getImageResource());
+                Glide.with(mContext)
+                    .load(item.getUrl())
+                    .skipMemoryCache(true)
+                    .placeholder(R.mipmap.ic_launcher_round)
+                    .into(mImageView);
             }
         }
     }
