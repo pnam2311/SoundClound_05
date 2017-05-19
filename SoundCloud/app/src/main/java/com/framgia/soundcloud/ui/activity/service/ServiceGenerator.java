@@ -1,4 +1,4 @@
-package com.framgia.soundcloud.ui.activity;
+package com.framgia.soundcloud.ui.activity.service;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

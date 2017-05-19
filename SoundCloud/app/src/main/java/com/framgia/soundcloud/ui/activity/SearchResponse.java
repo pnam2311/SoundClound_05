@@ -9,7 +9,7 @@ import java.util.List;
  * Created by K on 5/12/2017.
  */
 
-public class SoundCloudModel {
+public class SearchResponse {
     @SerializedName("collection")
     private List<Collection> mCollection;
     @SerializedName("total_results")

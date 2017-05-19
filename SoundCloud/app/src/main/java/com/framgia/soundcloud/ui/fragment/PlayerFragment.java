@@ -13,11 +13,13 @@ import com.example.k.soundcloud.R;
  * Created by K on 5/11/2017.
  */
 
-public class PlayerFragment extends Fragment{
+public class PlayerFragment extends Fragment {
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-       View v = inflater.inflate(R.layout.fragment_player, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_player, container, false);
         return  v;
     }
+
 }

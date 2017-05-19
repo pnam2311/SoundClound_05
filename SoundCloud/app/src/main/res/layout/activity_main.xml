@@ -1,45 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.framgia.soundcloud.ui.activity.MainActivity">
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/edit_search_bar"
+<LinearLayout android:id="@+id/album_layout"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.framgia.soundcloud.ui.activity.MainActivity">
+        <fragment
+            android:id="@+id/album_list_fragment"
+            android:name="com.framgia.soundcloud.ui.fragment.AlbumListFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:hint="@string/search"
-            android:lines="1" />
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_album_list"/>
 
-        <ImageView
-            android:id="@+id/image_search_button"
-            android:layout_width="@dimen/dp_35"
-            android:layout_height="@dimen/dp_35"
-            android:layout_alignParentRight="true"
-            android:src="@mipmap/ic_launcher" />
-    </RelativeLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_album_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical" />
-
-    <fragment
-        android:id="@+id/player_fragment"
-        android:name="com.framgia.soundcloud.ui.fragment.PlayerFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_player" />
+        <fragment
+            android:id="@+id/player_fragment"
+            android:name="com.framgia.soundcloud.ui.fragment.PlayerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_player"/>
 </LinearLayout>
 
