@@ -1,4 +1,7 @@
-package com.framgia.soundcloud.ui.activity;
+package com.framgia.soundcloud.ui.activity.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -9,20 +12,11 @@ import java.util.List;
  * Created by K on 5/12/2017.
  */
 
-public class SearchResponse {
+public class SearchResponse implements Parcelable{
     @SerializedName("collection")
     private List<Collection> mCollection;
     @SerializedName("total_results")
     private int mTotal;
-
-    public List<Collection> getmCollection() {
-        return mCollection;
-    }
-
-    public void setmCollection(
-        List<Collection> mCollection) {
-        this.mCollection = mCollection;
-    }
 
     public List<Collection> getCollection() {
         return mCollection;
@@ -41,6 +35,15 @@ public class SearchResponse {
         mTotal = total;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+    }
+
     public class Collection {
         @SerializedName("kind")
         private String mKind;
@@ -50,7 +53,6 @@ public class SearchResponse {
         private String mTitle;
         @SerializedName("artwork_url")
         private String mArtworkUrl;
-
 
         public String getKind() {
             return mKind;
@@ -83,6 +85,8 @@ public class SearchResponse {
         public void setArtworkUrl(String artworkUrl) {
             mArtworkUrl = artworkUrl;
         }
+
+
     }
 
 }

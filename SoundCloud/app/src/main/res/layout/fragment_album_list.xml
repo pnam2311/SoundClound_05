@@ -7,16 +7,18 @@
     android:orientation="vertical"
     tools:context="com.framgia.soundcloud.ui.activity.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/dp_5"
+        android:paddingTop="@dimen/dp_2">
 
         <EditText
             android:id="@+id/edit_search_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_weight="8"
             android:hint="@string/search"
             android:lines="1"/>
 
@@ -24,9 +26,12 @@
             android:id="@+id/image_search_button"
             android:layout_width="@dimen/dp_35"
             android:layout_height="@dimen/dp_35"
-            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_weight="2"
             android:src="@mipmap/ic_launcher"/>
-    </RelativeLayout>
+
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_album_list"

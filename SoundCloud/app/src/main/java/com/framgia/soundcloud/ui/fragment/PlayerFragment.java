@@ -19,7 +19,6 @@ public class PlayerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_player, container, false);
-        return  v;
+        return v;
     }
-
 }

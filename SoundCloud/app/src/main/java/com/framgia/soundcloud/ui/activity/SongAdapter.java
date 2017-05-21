@@ -12,7 +12,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.k.soundcloud.R;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by K on 5/18/2017.
@@ -21,9 +23,8 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     private List<SongItem> mSongs;
     private Context mContext;
 
-    public SongAdapter(List<SongItem> songs, Context context) {
+    public SongAdapter(List<SongItem> songs) {
         mSongs = songs;
-        mContext = context;
     }
 
     @Override
@@ -34,7 +35,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(SongAdapter.ViewHolder holder, int i) {
+    public void onBindViewHolder(ViewHolder holder, int i) {
         SongItem item = mSongs.get(i);
         holder.bindData(item);
     }
@@ -61,14 +62,21 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         public void bindData(SongItem item) {
             if (item != null) {
                 mTitle.setText(item.getSongTitle());
-                mArtist.setText(item.getArtist());
-                mDuration.setText(item.getDuration());
+                mArtist.setText(item.getUsername());
+                mDuration.setText(duration(item.getDuration()));
                 Glide.with(mContext)
                     .load(item.getUrl())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .placeholder(R.mipmap.ic_launcher_round)
+                    .placeholder(R.mipmap.ic_launcher)
                     .into(mAlbumArt);
             }
+        }
+
+        public String duration(int millis) {
+            String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis),
+                TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
+                TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+            return hms;
         }
     }
 }

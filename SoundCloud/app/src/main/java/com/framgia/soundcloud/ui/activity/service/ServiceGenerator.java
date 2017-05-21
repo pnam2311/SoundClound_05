@@ -5,13 +5,13 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.framgia.soundcloud.ui.activity.Const.BASE_URL;
+
 /**
  * Created by K on 5/12/2017.
  */
 
 public class ServiceGenerator {
-    private static final String BASE_URL = "https://api.soundcloud.com/" ;
-
     private static Retrofit retrofit = null;
     private static Retrofit.Builder builder = new Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create());

@@ -1,4 +1,7 @@
-package com.framgia.soundcloud.ui.activity;
+package com.framgia.soundcloud.ui.activity.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -7,13 +10,13 @@ import java.util.List;
 /**
  * Created by ducpm on 16/05/17.
  */
-public class SongModel {
+public class SongModel{
     @SerializedName("genre")
     private String mGenre;
     @SerializedName("title")
     private String mTitle;
     @SerializedName("id")
-    private String mId;
+    private int mId;
     @SerializedName("artwork_url")
     private String mArtworkUrl;
     @SerializedName("user")
@@ -37,11 +40,11 @@ public class SongModel {
         mTitle = title;
     }
 
-    public String getId() {
+    public int getId() {
         return mId;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         mId = id;
     }
 
@@ -72,18 +75,18 @@ public class SongModel {
     public class User {
         // de search user (for later)
         @SerializedName("username")
-        private String mUserName;
+        private String mUsername;
         @SerializedName("id")
         private String mId;
         @SerializedName("avatar_url")
         private String mUserAvatarUrl;
 
-        public String getUserName() {
-            return mUserName;
+        public String getUsername() {
+            return mUsername;
         }
 
-        public void setUserName(String userName) {
-            mUserName = userName;
+        public void setUsername(String username) {
+            mUsername = username;
         }
 
         public String getId() {

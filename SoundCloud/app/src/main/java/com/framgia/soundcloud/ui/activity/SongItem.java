@@ -3,20 +3,22 @@ package com.framgia.soundcloud.ui.activity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.framgia.soundcloud.ui.activity.model.SongModel;
+
 /**
  * Created by ducpm on 16/05/17.
  */
 public class SongItem {
     private String mUrl;
     private String mSongTitle;
-    private String mArtist;
+    private String mUsername;
     private int mDuration;
 
-    public SongItem(String url, String songTitle, String artist, int duration) {
-        mUrl = url;
-        mSongTitle = songTitle;
-        mArtist = artist;
-        mDuration = duration;
+    public SongItem(SongModel model){
+        mUrl = model.getArtworkUrl();
+        mSongTitle = model.getTitle();
+        mUsername = model.getUser().getUsername();
+        mDuration = model.getDuration();
     }
 
     public String getUrl() {
@@ -35,12 +37,12 @@ public class SongItem {
         mSongTitle = songTitle;
     }
 
-    public String getArtist() {
-        return mArtist;
+    public String getUsername() {
+        return mUsername;
     }
 
-    public void setArtist(String artist) {
-        mArtist = artist;
+    public void setUsername(String username) {
+        mUsername = username;
     }
 
     public int getDuration() {
@@ -50,4 +52,5 @@ public class SongItem {
     public void setDuration(int duration) {
         mDuration = duration;
     }
+
 }

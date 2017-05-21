@@ -1,7 +1,8 @@
 package com.framgia.soundcloud.ui.activity.service;
 
-import com.framgia.soundcloud.ui.activity.SearchResponse;
-import com.framgia.soundcloud.ui.activity.SongModel;
+import com.framgia.soundcloud.ui.activity.model.AlbumModel;
+import com.framgia.soundcloud.ui.activity.model.SearchResponse;
+import com.framgia.soundcloud.ui.activity.model.SongModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -18,10 +19,10 @@ public interface SoundCloudService {
                              , @Query("limit") int limit
                              , @Query("offset") int offset);
     @GET("tracks/{id}")
-    Call<SongModel> getTrack(@Path("id") int id
+    Call<SongModel> getSong(@Path("id") int id
                            , @Query("client_id") String client_id);
-    @GET("playlist/{id}")
-    Call<SearchResponse> getAlbum(@Path("id") int id
+    @GET("playlists/{id}")
+    Call<AlbumModel> getAlbum(@Path("id") int id
                             , @Query("client_id") String client_id);
 }
 

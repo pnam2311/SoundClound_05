@@ -1,16 +1,28 @@
 package com.framgia.soundcloud.ui.activity;
 
+import com.framgia.soundcloud.ui.activity.model.AlbumModel;
+import com.framgia.soundcloud.ui.activity.model.SearchResponse;
+
 /**
  * Created by K on 5/10/2017.
  */
-
 public class AlbumItem {
     private String mTitle;
     private String mUrl;
+    private String mKind;
+    private int mId;
 
-    public AlbumItem(String title, String url) {
+    public AlbumItem(SearchResponse model, int i) {
+        mTitle = model.getCollection().get(i).getTitle();
+        mUrl = model.getCollection().get(i).getArtworkUrl();
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public void setTitle(String title) {
         mTitle = title;
-        mUrl = url;
     }
 
     public String getUrl() {
@@ -21,11 +33,19 @@ public class AlbumItem {
         mUrl = url;
     }
 
-    public String getTitle() {
-        return mTitle;
+    public String getKind() {
+        return mKind;
     }
 
-    public void setTitle(String title) {
-        mTitle = title;
+    public void setKind(String kind) {
+        mKind = kind;
+    }
+
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
     }
 }
